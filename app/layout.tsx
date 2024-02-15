@@ -6,6 +6,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon.png",
+  },
   title: "Synara AI",
   description: "Plataforma que engloba Inteligência Artificiais",
 };
