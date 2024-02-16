@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
-  title: "Synara AI",
+  title: "Synara IA",
   description: "Plataforma que engloba Inteligência Artificiais",
 };
 
