@@ -9,15 +9,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import { cn } from "@/lib/utils";
+import { formsSchema } from "./constants";
 
-import Heading from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
+import Heading from "@/components/heading";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
-
-import { formsSchema } from "./constants";
+import UserAvatar from "@/components/user-avatar";
+import BotAvatar from "@/components/bot-avatar";
 
 const ConversationPage = () => {
   const router = useRouter();
@@ -128,7 +130,8 @@ const ConversationPage = () => {
                     : "bg-muted"
                 )}
               >
-                {message.content}
+                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                <p className="text-sm">{message.content}</p>
               </div>
             ))}
           </div>
