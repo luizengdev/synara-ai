@@ -31,7 +31,7 @@ const tools = [
     href: "/image",
   },
   {
-    label: "Geração de Video",
+    label: "Geração de Vídeo",
     icon: VideoIcon,
     color: "text-orange-700",
     bgColor: "bg-orange-700/10",
