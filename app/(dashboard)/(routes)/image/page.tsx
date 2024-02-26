@@ -7,9 +7,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { amountOptions, formsSchema, resolutionOptions } from "./constants";
 import Image from "next/image";
+import { UseProModal } from "@/hooks/use-pro-modal";
 
 import { Card, CardFooter } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -28,6 +28,7 @@ import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 
 const ImagePage = () => {
+  const proModal = UseProModal();
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -55,8 +56,9 @@ const ImagePage = () => {
 
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
