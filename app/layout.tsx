@@ -5,6 +5,7 @@ import "./globals.css";
 
 import ModalProvider from "@/components/modal-provider";
 import { ToasterProvider } from "@/components/toaster-provider";
+import { CrispProvider } from "@/components/crisp-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="pt-BR">
+        <CrispProvider />
         <body className={inter.className}>
           <ModalProvider />
           <ToasterProvider />
