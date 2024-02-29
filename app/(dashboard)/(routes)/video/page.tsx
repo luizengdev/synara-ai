@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import Heading from "@/components/heading";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
+import toast from "react-hot-toast";
 
 const VideoPage = () => {
   const proModal = UseProModal();
@@ -43,6 +44,8 @@ const VideoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Algo deu errado. Por favor, tente novamente.");
       }
     } finally {
       router.refresh();

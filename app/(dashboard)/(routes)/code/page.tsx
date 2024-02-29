@@ -22,6 +22,7 @@ import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
+import toast from "react-hot-toast";
 
 const CodePage = () => {
   const proModal = UseProModal();
@@ -54,6 +55,8 @@ const CodePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("Algo deu errado. Por favor, tente novamente.");
       }
     } finally {
       router.refresh();
